@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background-image: url('/images/hero-sticker-desk.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect ke liye */
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Purple + Black gradient jo aapke brand colors se match karega */
+  background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(138, 43, 226, 0.3) 100%);
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  max-width: 750px;
+}
+
+.badge {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: clamp(3rem, 8vw, 4.5rem); /* Responsive text size */
+  font-weight: 900;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #a855f7; /* Bright purple for emphasis */
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  background-color: #a855f7;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  background-color: #9333ea;
+  transform: translateY(-3px);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid white;
+  transition: all 0.2s;
+}
+
+.btnSecondary:hover {
+  background-color: white;
+  color: #1a1a1a;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero { 
+    min-height: 80vh; /* Mobile par thori zyada height behtar lagti hai */
+    padding: 60px 0;
+    text-align: center; 
+    /* Background position center taake main object nazar aaye */
+    background-position: center center;
+  }
+
+  .btnGroup { 
+    flex-direction: column; 
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn, .btnSecondary {
+    width: 100%; /* Mobile par buttons puri width ke hon toh touch asaan hota hai */
+    max-width: 300px;
+  }
+
+  .title {
+    /* Mobile par title thora aur control mein rahe */
+    font-size: 2.5rem; 
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+}

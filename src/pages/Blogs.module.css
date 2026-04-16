@@ -1,0 +1,40 @@
+.pageWrapper {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: var(--brand-purple);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}

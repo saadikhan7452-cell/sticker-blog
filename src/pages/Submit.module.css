@@ -1,0 +1,152 @@
+.pageWrapper {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.highlight {
+  color: var(--brand-purple);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Naya Grid Layout */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.formSection {
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.iframe {
+  border-radius: 12px;
+  width: 100%;
+}
+
+/* QR Code Section Styling */
+.qrCard {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  position: sticky;
+  top: 100px;
+}
+
+.qrIcon {
+  color: var(--brand-purple);
+  margin-bottom: 15px;
+}
+
+.qrCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.qrCard p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.qrImageWrapper {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: inline-block;
+  border: 2px solid #f3f4f6;
+}
+
+.qrImageWrapper img {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+
+.mobileTip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* RESPONSIVE UPDATES */
+@media (max-width: 850px) {
+  .pageWrapper {
+    padding: 30px 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .qrCard {
+    position: static;
+    padding: 20px;
+    order: -1; /* QR card ko form se upar dikhane ke liye agar chahien */
+  }
+
+  .formSection {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qrImageWrapper img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .qrCard h3 {
+    font-size: 1.25rem;
+  }
+}

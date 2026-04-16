@@ -1,0 +1,44 @@
+:root {
+  /* Brand Colors */
+  --brand-purple: #6B21A8;
+  --brand-purple-dark: #4C1D95;
+  --brand-yellow: #FACC15;
+  --brand-light: #F3E8FF;
+  
+  /* Text & Background Colors */
+  --bg-main: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --border-color: #E5E7EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar (Professional touch) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-purple);
+  border-radius: 4px;
+}

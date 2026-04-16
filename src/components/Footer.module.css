@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--text-main); /* Dark gray/black */
+  color: var(--text-muted);
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: auto; /* Iski wajah se footer hamesha neechay rahega */
+  border-top: 4px solid var(--brand-purple);
+}
+
+.text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.highlight {
+  color: var(--brand-yellow);
+  font-weight: 700;
+}

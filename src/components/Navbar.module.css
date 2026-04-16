@@ -1,0 +1,121 @@
+.navbar {
+  background-color: var(--brand-purple);
+  color: white;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-yellow);
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #E5E7EB;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: var(--brand-yellow);
+  transform: translateY(-2px);
+}
+
+/* --- SIDEBAR BASE STATE (Force Hidden on Desktop) --- */
+.sidebar {
+  display: none !important; 
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--brand-purple);
+  z-index: 2100;
+  flex-direction: column;
+  padding: 100px 30px;
+  gap: 25px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 2200;
+}
+
+/* --- RESPONSIVE LOGIC --- */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none !important;
+  }
+
+  .menuBtn {
+    display: block !important;
+  }
+
+  .sidebar {
+    display: flex !important; /* Mobile par flex enable karein */
+  }
+
+  .sidebar.active {
+    right: 0 !important; /* Slide in on mobile */
+  }
+
+  .sideLink {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2050;
+  }
+
+  .logo img {
+    height: 70px !important;
+  }
+}

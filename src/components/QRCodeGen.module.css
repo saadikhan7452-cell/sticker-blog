@@ -1,0 +1,71 @@
+/* ... baki sara code purana wala hi rahega ... */
+
+.wrapper {
+  background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-purple-dark) 100%);
+  border-radius: 24px;
+  padding: 30px 20px; /* Mobile par padding kam ki */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  color: white;
+  margin: 40px 15px; /* Mobile par margin kam ki taake screen se na chipke */
+  box-shadow: 0 15px 30px rgba(107, 33, 168, 0.2);
+  overflow: hidden; /* Elements ko bahar nikalne se rokne ke liye */
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    padding: 50px;
+    margin: 60px 0; /* Desktop par wapas original margin */
+  }
+}
+
+.title {
+  font-size: 1.5rem; /* Mobile par title size adjust kiya */
+  font-weight: 800;
+  color: var(--brand-yellow);
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem; /* Desktop par original size */
+  }
+}
+
+.subtitle {
+  font-size: 0.95rem; /* Mobile par thora chota */
+  color: var(--brand-light);
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+.qrBox {
+  background: white;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  flex-shrink: 0; /* QR box ko mobile par squeeze hone se rokega */
+}
+
+.qrImage {
+  width: 120px; /* Mobile par QR thora chota */
+  height: 120px;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .qrImage {
+    width: 140px;
+    height: 140px;
+  }
+}

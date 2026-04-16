@@ -1,162 +1,83 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 85vh; /* Mobile par thoda zyada height di hai */
+  min-height: 70vh; /* Zyada bari height mobile par masla karti hai */
   display: flex;
   align-items: center;
+  justify-content: center;
   background-image: url('/images/hero-sticker-desk.jpeg');
   background-size: cover;
   background-position: center;
-  /* FIXED: Mobile par 'fixed' attachment blur karta hai, ise remove kiya hai */
-  background-attachment: scroll; 
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* IMPROVED: Gradient ko thoda depth di hai taake text zyada saaf dikhe */
-  background: linear-gradient(
-    135deg, 
-    rgba(0, 0, 0, 0.9) 0%, 
-    rgba(138, 43, 226, 0.4) 100%
-  );
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8));
   z-index: 1;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
-  padding: 0 24px; /* Padding kam ki hai mobile friendly banane ke liye */
+  padding: 0 20px;
   position: relative;
   z-index: 2;
 }
 
 .content {
-  max-width: 750px;
-}
-
-.badge {
-  color: #fff;
-  background: rgba(168, 85, 247, 0.2); /* Theme color match kiya hai */
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border: 1px solid rgba(168, 85, 247, 0.4);
-  backdrop-filter: blur(10px);
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 25px;
-  letter-spacing: 0.5px;
+  max-width: 700px;
+  text-align: left;
 }
 
 .title {
-  /* FIXED: Clamp settings adjust ki hain for better desktop/mobile scaling */
-  font-size: clamp(2.2rem, 8vw, 4.2rem); 
-  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 4rem);
   color: white;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.highlight {
-  color: #c084fc; /* Thoda light purple for better contrast */
-  display: block; /* Mobile par naye line par lane ke liye option */
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
 }
 
 .btnGroup {
   display: flex;
-  gap: 16px;
+  gap: 15px;
+  flex-wrap: wrap; /* Buttons ko tootne se bachayega */
 }
 
-.btn {
-  background-color: #a855f7;
-  color: white !important;
-  padding: 14px 30px;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-}
-
-.btn:hover {
-  background-color: #9333ea;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
-}
-
-.btnSecondary {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: white !important;
-  padding: 14px 30px;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-}
-
-.btnSecondary:hover {
-  background-color: white;
-  color: #1a1a1a !important;
-  border-color: white;
-}
-
-/* --- Mobile Specific Fixes --- */
+/* --- MOBILE RESPONSIVE FIX --- */
 @media (max-width: 768px) {
-  .hero { 
-    min-height: 90vh; /* Mobile screen cover karne ke liye */
-    padding: 80px 0;
-    background-attachment: scroll; /* Blur fix */
-    background-position: 65% center; /* Focus sticker par shift kiya hai */
-  }
-
-  .container {
-    text-align: center;
-    padding: 0 20px;
+  .hero {
+    min-height: 60vh;
+    padding: 40px 0;
   }
 
   .content {
+    text-align: center; /* Mobile par center alignment hamesha safe hoti hai */
     margin: 0 auto;
   }
 
-  .btnGroup { 
-    flex-direction: column; 
-    gap: 12px;
-    align-items: center;
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .btnGroup {
+    justify-content: center;
+    flex-direction: column; /* Buttons ek ke niche ek aayenge */
+    width: 100%;
   }
 
   .btn, .btnSecondary {
-    width: 100%; 
-    max-width: 320px;
-    padding: 16px;
-  }
-
-  .title {
-    font-size: 2.4rem; 
-    letter-spacing: -0.5px;
-  }
-
-  .subtitle {
-    margin-bottom: 30px;
-    padding: 0 5px;
+    width: 100%;
+    display: block;
+    text-align: center;
   }
 }

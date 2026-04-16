@@ -1,13 +1,14 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 75vh;
+  min-height: 85vh; /* Mobile par thoda zyada height di hai */
   display: flex;
   align-items: center;
   background-image: url('/images/hero-sticker-desk.jpeg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect ke liye */
+  /* FIXED: Mobile par 'fixed' attachment blur karta hai, ise remove kiya hai */
+  background-attachment: scroll; 
   overflow: hidden;
 }
 
@@ -17,8 +18,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* Purple + Black gradient jo aapke brand colors se match karega */
-  background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(138, 43, 226, 0.3) 100%);
+  /* IMPROVED: Gradient ko thoda depth di hai taake text zyada saaf dikhe */
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(138, 43, 226, 0.4) 100%
+  );
   z-index: 1;
 }
 
@@ -26,7 +31,7 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 24px; /* Padding kam ki hai mobile friendly banane ke liye */
   position: relative;
   z-index: 2;
 }
@@ -37,105 +42,121 @@
 
 .badge {
   color: #fff;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 16px;
+  background: rgba(168, 85, 247, 0.2); /* Theme color match kiya hai */
+  padding: 8px 18px;
   border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
-  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
 
 .title {
-  font-size: clamp(3rem, 8vw, 4.5rem); /* Responsive text size */
+  /* FIXED: Clamp settings adjust ki hain for better desktop/mobile scaling */
+  font-size: clamp(2.2rem, 8vw, 4.2rem); 
   font-weight: 900;
   color: white;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .highlight {
-  color: #a855f7; /* Bright purple for emphasis */
+  color: #c084fc; /* Thoda light purple for better contrast */
+  display: block; /* Mobile par naye line par lane ke liye option */
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
   margin-bottom: 40px;
+  max-width: 600px;
 }
 
 .btnGroup {
   display: flex;
-  gap: 15px;
+  gap: 16px;
 }
 
 .btn {
   background-color: #a855f7;
-  color: white;
-  padding: 16px 32px;
-  border-radius: 12px;
+  color: white !important;
+  padding: 14px 30px;
+  border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: transform 0.2s, background 0.2s;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
 }
 
 .btn:hover {
   background-color: #9333ea;
   transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
 }
 
 .btnSecondary {
-  background-color: transparent;
-  color: white;
-  padding: 16px 32px;
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white !important;
+  padding: 14px 30px;
+  border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
-  font-size: 1.1rem;
-  border: 2px solid white;
-  transition: all 0.2s;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 
 .btnSecondary:hover {
   background-color: white;
-  color: #1a1a1a;
+  color: #1a1a1a !important;
+  border-color: white;
 }
 
-/* Mobile adjustments */
+/* --- Mobile Specific Fixes --- */
 @media (max-width: 768px) {
   .hero { 
-    min-height: 80vh; /* Mobile par thori zyada height behtar lagti hai */
-    padding: 60px 0;
-    text-align: center; 
-    /* Background position center taake main object nazar aaye */
-    background-position: center center;
+    min-height: 90vh; /* Mobile screen cover karne ke liye */
+    padding: 80px 0;
+    background-attachment: scroll; /* Blur fix */
+    background-position: 65% center; /* Focus sticker par shift kiya hai */
+  }
+
+  .container {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .content {
+    margin: 0 auto;
   }
 
   .btnGroup { 
     flex-direction: column; 
-    gap: 15px;
-    width: 100%;
+    gap: 12px;
     align-items: center;
   }
 
   .btn, .btnSecondary {
-    width: 100%; /* Mobile par buttons puri width ke hon toh touch asaan hota hai */
-    max-width: 300px;
+    width: 100%; 
+    max-width: 320px;
+    padding: 16px;
   }
 
   .title {
-    /* Mobile par title thora aur control mein rahe */
-    font-size: 2.5rem; 
-    margin-bottom: 15px;
+    font-size: 2.4rem; 
+    letter-spacing: -0.5px;
   }
 
   .subtitle {
-    font-size: 1.1rem;
     margin-bottom: 30px;
-    padding: 0 10px;
+    padding: 0 5px;
   }
 }

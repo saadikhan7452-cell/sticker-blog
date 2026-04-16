@@ -1,83 +1,68 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 70vh; /* Zyada bari height mobile par masla karti hai */
+  /* Mobile par screen height adjust karne ke liye */
+  min-height: 85vh; 
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Image settings */
   background-image: url('/images/hero-sticker-desk.jpeg');
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Yeh image ko stretch nahi hone dega */
+  background-position: center center; /* Image ka center dikhayega */
   background-repeat: no-repeat;
+  
+  /* IMPORTANT: Mobile blur fix karne ke liye fixed ko remove kiya */
+  background-attachment: scroll; 
   overflow: hidden;
 }
 
+/* Overlay ko thoda dark rakhein taake text saaf parha jaye */
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.8));
+  background: rgba(0, 0, 0, 0.6); 
   z-index: 1;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.content {
-  max-width: 700px;
-  text-align: left;
-}
+}  
 
 .title {
-  font-size: clamp(2rem, 8vw, 4rem);
-  color: white;
+  font-size: clamp(2.2rem, 10vw, 4rem); /* Mobile par size chota ho jayega */
   font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: white;
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
+  padding: 0 10px; /* Sides se thodi space */
 }
 
-.btnGroup {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap; /* Buttons ko tootne se bachayega */
-}
 
-/* --- MOBILE RESPONSIVE FIX --- */
 @media (max-width: 768px) {
   .hero {
-    min-height: 60vh;
-    padding: 40px 0;
+    min-height: 100vh; /* Mobile par poori screen cover kare */
+    padding-top: 80px; /* Navbar se niche lane ke liye */
   }
 
-  .content {
-    text-align: center; /* Mobile par center alignment hamesha safe hoti hai */
-    margin: 0 auto;
-  }
-
-  .title {
-    font-size: 2.2rem;
+  .container {
+    text-align: center;
+    padding: 0 20px;
   }
 
   .btnGroup {
-    justify-content: center;
-    flex-direction: column; /* Buttons ek ke niche ek aayenge */
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    gap: 12px;
   }
 
   .btn, .btnSecondary {
     width: 100%;
-    display: block;
-    text-align: center;
+    max-width: 280px; /* Buttons zyada bare na hon */
   }
 }

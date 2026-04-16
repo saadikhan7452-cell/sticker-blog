@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs'; 
 import SingleBlog from './pages/SingleBlog';
 import About from './pages/About';
+import SubmitVideo from "./pages/Submit";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="blog/:id" element={<SingleBlog />} />
           <Route path="about" element={<About />} />
+         <Route path="/submit" element={<SubmitVideo />} />
         </Route>
       </Routes>
     </BrowserRouter>

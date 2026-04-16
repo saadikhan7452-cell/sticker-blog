@@ -4,12 +4,13 @@ import styles from './Hero.module.css';
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Background image CSS se handle hogi */}
       <div className={styles.overlay}></div>
       
       <div className={styles.container}>
         <div className={styles.content}>
-          <span className={styles.badge}>Where Stories Stick Forever</span>
+          <div className={styles.badgeWrapper}>
+             <span className={styles.badge}>Where Stories Stick Forever</span>
+          </div>
           
           <h1 className={styles.title}>
             Watch. Read. <span className={styles.highlight}>Collect.</span>
@@ -25,9 +26,9 @@ export default function Hero() {
             <Link to="/blogs" className={styles.btn}>
               Explore Stories
             </Link>
-            <Link to="/submit" className={styles.btnSecondary}>
-              Submit Your Video
-            </Link>
+          <Link to="/submit" className={styles.btnSecondary}>
+  Submit Your Video
+</Link>
           </div>
         </div>
       </div>

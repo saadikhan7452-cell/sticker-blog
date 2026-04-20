@@ -1,70 +1,89 @@
-
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 15px; 
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 60px 20px; 
-  }
+  padding: 40px 20px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 30px;
-}
-
-@media (min-width: 768px) {
-  .header {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 40px;
 }
 
 .title {
-  font-size: 2.2rem; 
+  font-size: 2.5rem;
   font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 10px;
-  line-height: 1.2;
+  color: #1f2937;
 }
 
-@media (min-width: 768px) {
-  .title {
-    font-size: 3rem; 
-  }
+.highlight {
+  color: #7c3aed; /* Brand Purple */
 }
 
 .contentBox {
   background-color: white;
-  padding: 25px 20px; 
-  border-radius: 16px; 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  border: 1px solid var(--border-color);
-  font-size: 1.05rem; 
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+  border: 1px solid #f3f4f6;
+  line-height: 1.7;
   color: #4b5563;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
-  .contentBox {
-    padding: 40px;
-    font-size: 1.15rem;
-    line-height: 1.8;
-  }
+/* --- Naya Side-by-Side Section --- */
+.flexSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: #f9fafb;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px dashed #d1d5db;
 }
 
-.contentBox h3 {
-  color: var(--brand-purple-dark);
-  font-size: 1.4rem; 
+.textSide {
+  flex: 1;
+}
+
+.textSide h3 {
+  color: #7c3aed;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
   font-weight: 800;
-  margin: 30px 0 15px;
 }
 
-@media (min-width: 768px) {
-  .contentBox h3 {
-    font-size: 1.8rem;
+.qrSide {
+  flex: 0 0 320px; /* PC par image ki width */
+  text-align: center;
+}
+
+.qrImageSide {
+  width: 100%;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2); /* Purple Glow Shadow */
+  transition: transform 0.3s ease;
+}
+
+.qrImageSide:hover {
+  transform: scale(1.03);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+  .flexSection {
+    flex-direction: column; /* Mobile par upar niche ho jayega */
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .qrSide {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 280px; /* Mobile par thori choti image */
+  }
+
+  .title {
+    font-size: 2rem;
   }
 }

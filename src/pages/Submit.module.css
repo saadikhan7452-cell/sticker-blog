@@ -5,7 +5,7 @@
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -25,19 +25,9 @@
   color: var(--brand-purple);
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-top: 15px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Naya Grid Layout */
 .contentGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.8fr 1.2fr;
   gap: 30px;
   align-items: start;
 }
@@ -45,108 +35,48 @@
 .formSection {
   background: white;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   overflow: hidden;
 }
 
-.iframe {
-  border-radius: 12px;
-  width: 100%;
-}
-
-/* QR Code Section Styling */
-.qrCard {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  text-align: center;
+/* Image Card Styling */
+.imageCardContainer {
   position: sticky;
   top: 100px;
+  text-align: center;
 }
 
-.qrIcon {
-  color: var(--brand-purple);
-  margin-bottom: 15px;
-}
-
-.qrCard h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: var(--text-main);
-}
-
-.qrCard p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 25px;
-}
-
-.qrImageWrapper {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  display: inline-block;
-  border: 2px solid #f3f4f6;
-}
-
-.qrImageWrapper img {
-  width: 150px;
-  height: 150px;
+.qrMainImage {
+  width: 100%;
+  max-width: 320px; 
+  height: auto;
+  border-radius: 35px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   display: block;
+  margin: 0 auto; 
+  transition: transform 0.3s ease;
 }
 
-.mobileTip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-  color: #6b7280;
-  font-size: 0.85rem;
+
+@media (max-width: 480px) {
+  .qrMainImage {
+    max-width: 280px;
+  }
+}
+
+.qrMainImage:hover {
+  transform: scale(1.02);
+}
+
+.imageOverlayText {
+  margin-top: 15px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-/* RESPONSIVE UPDATES */
 @media (max-width: 850px) {
-  .pageWrapper {
-    padding: 30px 0;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    padding: 0 15px;
-  }
-
-  .contentGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .qrCard {
-    position: static;
-    padding: 20px;
-    order: -1; /* QR card ko form se upar dikhane ke liye agar chahien */
-  }
-
-  .formSection {
-    padding: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .qrImageWrapper img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .qrCard h3 {
-    font-size: 1.25rem;
-  }
+  .contentGrid { grid-template-columns: 1fr; }
+  .imageCardContainer { position: static; order: -1; margin-bottom: 30px; }
 }

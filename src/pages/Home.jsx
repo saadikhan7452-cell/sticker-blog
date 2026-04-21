@@ -28,7 +28,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 3: NEON CTA BANNER */}
+     
         <section className={styles.neonBanner}>
           <Sparkles className={styles.iconFloating} size={40} />
           <h2 className={styles.bannerTitle}>Never Miss a Sticker Drop!</h2>
@@ -38,7 +38,7 @@ export default function Home() {
           </a>
         </section>
 
-        {/* SECTION 4: COMMUNITY STATS */}
+       
         <section className={styles.statsSection}>
           <div className={styles.statBox}>
             <h3>100+</h3>
@@ -54,13 +54,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 5: SUBMIT YOUR STORY QR */}
-        <section className={styles.qrSection}>
-          <div className={styles.headerFlex}>
-            <h2 className={styles.sectionTitle}>Get Featured</h2>
-          </div>
-          <QRCodeGen />
-        </section>
+      
+ <section className={styles.qrSection}>
+  <div className={styles.flexContainer}>
+    {/* Left Side: Text */}
+    <div className={styles.textSide}>
+      <h2 className={styles.sectionTitle}>Get Featured</h2>
+      <p className={styles.sectionDescription}>
+        Want to showcase your sticker collection to thousands? Scan the QR code to submit your story, upload your videos, and get a chance to be featured on our main page!
+      </p>
+      <div className={styles.featurePoints}>
+        <span>✓ High-quality long-form videos</span>
+        <span>✓ Detailed sticker reviews</span>
+        <span>✓ Global community reach</span>
+      </div>
+    </div>
+
+    {/* Right Side: QR Image */}
+    <div className={styles.qrSide}>
+      <div className={styles.qrCard}>
+        <img 
+          src="/qr-cinematic.png" 
+          alt="Scan to Get Featured" 
+          className={styles.homeQrImage} 
+        />
+        <p className={styles.qrBadge}>SCAN TO SUBMIT</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       </div>
     </div>

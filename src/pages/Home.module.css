@@ -113,20 +113,83 @@
   font-size: 1.1rem;
 }
 
-.iconFloating {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: var(--brand-yellow);
-  animation: float 3s ease-in-out infinite;
+/* --- QR SECTION (New Layout) --- */
+.qrSection {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  margin: 60px 0;
+  border: 1px solid #f3f4f6;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.flexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 50px;
 }
 
-/* RESPONSIVE FIXES (Without adding comments) */
+.textSide {
+  flex: 1;
+  text-align: left;
+}
+
+.qrMainTitle {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.featurePoints {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.qrSide {
+  flex: 0 0 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.qrCard {
+  background: #f9fafb;
+  padding: 25px;
+  border-radius: 35px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.homeQrImage {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+}
+
+.qrBadge {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #7c3aed;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE FIXES */
 @media (max-width: 768px) {
   .section {
     padding: 40px 0;
@@ -135,10 +198,6 @@
   .sectionTitle {
     font-size: 1.4rem;
     border-left-width: 4px;
-  }
-
-  .ctaLink {
-    font-size: 0.85rem;
   }
 
   .statsSection {
@@ -160,17 +219,24 @@
     font-size: 1.8rem;
   }
 
-  .bannerText {
-    font-size: 1rem;
+  /* QR Section Mobile Specific */
+  .flexContainer {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 35px;
   }
 
-  .mainCta {
-    font-size: 1.1rem;
-    padding: 14px 30px;
+  .textSide {
+    text-align: center;
   }
 
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+  .qrMainTitle {
+    font-size: 1.8rem;
+  }
+
+  .qrSide {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
   }
 }

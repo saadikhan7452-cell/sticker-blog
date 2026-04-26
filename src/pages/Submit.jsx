@@ -12,22 +12,29 @@ export default function Submit() {
     if (!file) return setStatus('❌ Please select a video!');
 
     setLoading(true);
-    setStatus('🚀 Uploading to cloud...');
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "sticker_video"); // Apna Cloudinary preset yahan likhen
-    formData.append("name", e.target.userName.value);
-    formData.append("email", e.target.userEmail.value);
+    setStatus('🚀 Uploading video to cloud (this may take a minute)...');
 
     try {
-      // 1. Send to Live Backend ya Localhost (Backend handles Cloudinary + DB)
+      // 1. Send Video directly to Cloudinary (Bypasses Backend Load)
+      const cloudData = new FormData();
+      cloudData.append("file", file);
+      cloudData.append("upload_preset", "sticker_video");
+
+      // Replace 'ddhmskhql' with your actual Cloudinary Cloud Name if different
+      const cloudRes = await axios.post(`https://api.cloudinary.com/v1_1/ddhmskhql/video/upload`, cloudData);
+      const videoUrl = cloudRes.data.secure_url;
+
+      setStatus('✅ Video uploaded! Saving to database...');
+
+      // 2. Send only Text/Link to Backend
       const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      const res = await axios.post(`${API_URL}/api/submit-video`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+      await axios.post(`${API_URL}/api/submit-video`, {
+        name: e.target.userName.value || "Anonymous",
+        email: e.target.userEmail.value || "Not Provided",
+        videoUrl: videoUrl
       });
 
-      setStatus('✅ Success! Your story has been submitted.');
+      setStatus('🎉 Success! Your story has been submitted.');
       setLoading(false);
       setFile(null);
       e.target.reset();

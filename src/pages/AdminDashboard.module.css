@@ -1,0 +1,113 @@
+.dashboardWrapper {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.statsBadge {
+  background: #ede9fe;
+  color: #7c3aed;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid #f3f4f6;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.15);
+}
+
+.cardThumb {
+  height: 180px;
+  background: linear-gradient(135deg, #1f2937, #4b5563);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.playBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.cardThumb:hover .playBtn {
+  background: #7c3aed;
+  transform: scale(1.1);
+}
+
+.cardBody {
+  padding: 25px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.userName {
+  font-weight: 800;
+  color: #1f2937;
+  font-size: 1.2rem;
+}
+
+.watchBtn {
+  display: block;
+  background: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}

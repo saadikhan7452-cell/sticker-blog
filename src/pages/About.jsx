@@ -1,6 +1,15 @@
+import React, { useState, useEffect } from 'react';
 import styles from './About.module.css';
 
 export default function About() {
+  const [qrUrl, setQrUrl] = useState('');
+
+  useEffect(() => {
+    // Dynamically gets your current domain and points the QR to /submit
+    const submitRoute = `${window.location.origin}/submit`;
+    setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(submitRoute)}`);
+  }, []);
+
   return (
     <div className={styles.container}>
       {/* Header Section */}
@@ -36,11 +45,13 @@ export default function About() {
         </div>
         
         <div className={styles.qrSide}>
-          <img 
-            src="/qr-cinematic.png" 
-            alt="Scan to Join" 
-            className={styles.qrImageSide}
-          />
+          {qrUrl ? (
+            <img 
+              src={qrUrl} 
+              alt="Scan to Join" 
+              className={styles.qrImageSide}
+            />
+          ) : <div className={styles.qrImageSide} style={{ height: '250px', background: '#f3f4f6' }} />}
           <p style={{marginTop: '15px', fontSize: '0.9rem', fontWeight: 'bold', color: '#7c3aed', letterSpacing: '1px'}}>
             SCAN TO SUBMIT
           </p>

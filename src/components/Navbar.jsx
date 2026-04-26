@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Clapperboard, Info, Upload, Menu, X } from 'lucide-react';
+import { BookOpen, Clapperboard, Info, Upload, Menu, X, Lock, LogOut } from 'lucide-react'; // Added LogOut icon
 import styles from './Navbar.module.css'; 
 import myLogo from '../assets/logo.jpeg'; 
 
@@ -8,6 +8,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Check if admin is logged in (Optional styling ke liye)
+  const isAdmin = localStorage.getItem('adminToken');
+
+  // Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    window.location.href = '/'; // Reload to home page to properly clear out the Navbar state
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -27,6 +36,16 @@ export default function Navbar() {
           <Link to="/blogs" className={styles.link}><Clapperboard size={18}/> Watch & Read</Link>
           <Link to="/submit" className={styles.link}><Upload size={18}/> Submit Video</Link>
           <Link to="/about" className={styles.link}><Info size={18}/> About</Link>
+          
+          {/* Conditional Admin Links */}
+          {isAdmin ? (
+            <>
+              <Link to="/admin-dashboard" className={styles.link} title="Admin Dashboard"><Lock size={16}/></Link>
+              <button onClick={handleLogout} className={styles.link} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }} title="Logout"><LogOut size={16}/></button>
+            </>
+          ) : (
+            <Link to="/admin-login" className={styles.link} title="Sign In / Sign Up"><Lock size={16}/></Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -49,6 +68,17 @@ export default function Navbar() {
         <Link to="/about" className={styles.sideLink} onClick={toggleMenu}>
           <Info size={20}/> About
         </Link>
+        
+        {isAdmin ? (
+          <>
+            <Link to="/admin-dashboard" className={styles.sideLink} onClick={toggleMenu}><Lock size={20}/> Dashboard</Link>
+            <button onClick={handleLogout} className={styles.sideLink} style={{ background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left', fontFamily: 'inherit', fontSize: 'inherit', color: 'inherit' }}><LogOut size={20}/> Logout</button>
+          </>
+        ) : (
+          <Link to="/admin-login" className={styles.sideLink} onClick={toggleMenu}>
+            <Lock size={20}/> Sign In / Sign Up
+          </Link>
+        )}
       </div>
 
       {/* Overlay */}

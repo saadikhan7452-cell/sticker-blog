@@ -119,3 +119,32 @@
     height: 70px !important;
   }
 }
+
+/* ... baki sara code purana hi hai ... */
+
+.link:hover {
+  color: var(--brand-yellow);
+  transform: translateY(-2px);
+}
+
+/* Admin icon ko thora alag dikhane ke liye */
+.link[title="Admin Portal"] {
+  opacity: 0.5;
+}
+.link[title="Admin Portal"]:hover {
+  opacity: 1;
+}
+
+/* --- RESPONSIVE LOGIC --- */
+@media (max-width: 768px) {
+  /* ... aapka purana responsive code ... */
+  
+  .logo img {
+    height: 60px !important; /* Mobile par logo thora aur set kiya */
+  }
+
+  .sidebar.active {
+    right: 0 !important;
+    display: flex !important;
+  }
+}

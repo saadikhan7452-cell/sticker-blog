@@ -60,9 +60,13 @@
 
 .qrImageSide {
   width: 100%;
+  max-width: 250px;
+  background: white;
+  padding: 15px;
   border-radius: 25px;
   box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2); /* Purple Glow Shadow */
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
 .qrImageSide:hover {

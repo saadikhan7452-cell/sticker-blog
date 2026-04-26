@@ -1,13 +1,16 @@
 .pageWrapper {
-  background-color: var(--bg-main);
   min-height: 100vh;
-  padding: 60px 0;
+  background: #000;
+  background-image: radial-gradient(circle at 20% 30%, #1e1b4b 0%, #000 100%);
+  padding: 60px 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1100px;
+  width: 100%;
 }
 
 .header {
@@ -17,66 +20,131 @@
 
 .title {
   font-size: 3rem;
-  font-weight: 900;
-  color: var(--text-main);
+  font-weight: 800;
 }
 
 .highlight {
-  color: var(--brand-purple);
+  color: #fbbf24;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-top: 10px;
 }
 
 .contentGrid {
   display: grid;
-  grid-template-columns: 1.8fr 1.2fr;
-  gap: 30px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   align-items: start;
 }
 
 .formSection {
-  background: white;
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Image Card Styling */
-.imageCardContainer {
-  position: sticky;
-  top: 100px;
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  color: #fbbf24;
+  margin-bottom: 8px;
+}
+
+.inputGroup input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+}
+
+.fileUploadBox {
+  border: 2px dashed rgba(251, 191, 36, 0.4);
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.fileUploadBox:hover {
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.fileLabel {
+  cursor: pointer;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.hiddenInput { display: none; }
+
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  background: #fbbf24;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+}
+
+.imageCardContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 
 .qrMainImage {
   width: 100%;
-  max-width: 320px; 
   height: auto;
-  border-radius: 35px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   display: block;
-  margin: 0 auto; 
-  transition: transform 0.3s ease;
+  transition: 0.5s;
 }
 
-
-@media (max-width: 480px) {
-  .qrMainImage {
-    max-width: 280px;
-  }
-}
-
-.qrMainImage:hover {
-  transform: scale(1.02);
+.imageCardContainer:hover .qrMainImage {
+  transform: scale(1.05);
 }
 
 .imageOverlayText {
-  margin-top: 15px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 500;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  text-align: center;
+  font-weight: 600;
 }
 
-@media (max-width: 850px) {
-  .contentGrid { grid-template-columns: 1fr; }
-  .imageCardContainer { position: static; order: -1; margin-bottom: 30px; }
+.statusMsg {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
 }

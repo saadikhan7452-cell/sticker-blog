@@ -5,6 +5,8 @@ import Blogs from './pages/Blogs';
 import SingleBlog from './pages/SingleBlog';
 import About from './pages/About';
 import SubmitVideo from "./pages/Submit";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="blog/:id" element={<SingleBlog />} />
           <Route path="about" element={<About />} />
          <Route path="/submit" element={<SubmitVideo />} />
+         <Route path="/admin-login" element={<AdminLogin />} />
+         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

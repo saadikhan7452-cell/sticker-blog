@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import BlogCard from '../components/BlogCard';
 import QRCodeGen from '../components/QRCodeGen';
@@ -6,6 +7,14 @@ import { PlayCircle, Heart, Share2, Sparkles } from 'lucide-react';
 import styles from './Home.module.css';
 
 export default function Home() {
+  const [qrUrl, setQrUrl] = useState('');
+
+  useEffect(() => {
+    // Dynamically gets your current domain and points the QR to /submit
+    const submitRoute = `${window.location.origin}/submit`;
+    setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(submitRoute)}`);
+  }, []);
+
   return (
     <div className={styles.homeWrapper}>
       <Hero />
@@ -72,13 +81,17 @@ export default function Home() {
 
     {/* Right Side: QR Image */}
     <div className={styles.qrSide}>
-      <div className={styles.qrCard}>
-        <img 
-          src="/qr-cinematic.png" 
-          alt="Scan to Get Featured" 
-          className={styles.homeQrImage} 
-        />
-        <p className={styles.qrBadge}>SCAN TO SUBMIT</p>
+      <div className={styles.qrCard} style={{ background: 'white', padding: '30px', borderRadius: '24px', display: 'inline-block', textAlign: 'center' }}>
+        {qrUrl ? (
+          <img 
+            src={qrUrl} 
+            alt="Scan to Get Featured" 
+            style={{ width: '200px', height: '200px', objectFit: 'contain' }}
+          />
+        ) : (
+          <div style={{ width: '200px', height: '200px', background: '#f3f4f6', borderRadius: '15px' }} />
+        )}
+        <p className={styles.qrBadge} style={{ marginTop: '20px', color: '#7c3aed', fontWeight: 'bold' }}>SCAN TO SUBMIT</p>
       </div>
     </div>
   </div>

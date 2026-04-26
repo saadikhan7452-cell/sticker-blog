@@ -6,13 +6,6 @@ export default function Submit() {
   const [file, setFile] = useState(null);
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
-  const [qrUrl, setQrUrl] = useState('');
-
-  useEffect(() => {
-    // Dynamically gets your current domain and points the QR to /submit
-    const submitRoute = `${window.location.origin}/submit`;
-    setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(submitRoute)}`);
-  }, []);
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -93,20 +86,6 @@ export default function Submit() {
                </button>
                {status && <p className={styles.statusMsg}>{status}</p>}
             </form>
-          </div>
-
-          {/* RIGHT SIDE: QR Code Display */}
-          <div className={styles.imageCardContainer} style={{ background: 'white', padding: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            {qrUrl ? (
-              <img 
-                src={qrUrl} 
-                alt="Scan to Submit" 
-                style={{ width: '250px', height: '250px', objectFit: 'contain' }}
-              />
-            ) : <div style={{ width: '250px', height: '250px', background: '#f3f4f6', borderRadius: '15px' }} />}
-            <div style={{ marginTop: '25px', fontWeight: 'bold', color: '#1f2937', textAlign: 'center', fontSize: '1.1rem' }}>
-               Scan to join our community of sticker lovers!
-            </div>
           </div>
         </div>
       </div>

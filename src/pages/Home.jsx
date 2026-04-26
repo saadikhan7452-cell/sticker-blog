@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import BlogCard from '../components/BlogCard';
-import QRCodeGen from '../components/QRCodeGen';
+import QRCodeGen from '../components/QRCodeGen'; // Component import confirm hai
 import { dummyBlogs } from '../data/dummyData';
 import { PlayCircle, Heart, Share2, Sparkles } from 'lucide-react'; 
 import styles from './Home.module.css';
@@ -17,7 +17,6 @@ export default function Home() {
           <div className={styles.headerFlex}>
             <h2 className={styles.sectionTitle}>Latest Sticker Hauls</h2>
             <a href="https://www.youtube.com/@StickerStories1" target="_blank" className={styles.ctaLink}>
-              {/* Yahan Youtube ki jagah PlayCircle use kiya hai taake error na aaye */}
               View All on YouTube <PlayCircle size={20} />
             </a>
           </div>
@@ -28,7 +27,7 @@ export default function Home() {
           </div>
         </section>
 
-     
+        {/* NEON BANNER */}
         <section className={styles.neonBanner}>
           <Sparkles className={styles.iconFloating} size={40} />
           <h2 className={styles.bannerTitle}>Never Miss a Sticker Drop!</h2>
@@ -38,7 +37,7 @@ export default function Home() {
           </a>
         </section>
 
-       
+        {/* STATS SECTION */}
         <section className={styles.statsSection}>
           <div className={styles.statBox}>
             <h3>100+</h3>
@@ -54,35 +53,33 @@ export default function Home() {
           </div>
         </section>
 
-      
- <section className={styles.qrSection}>
-  <div className={styles.flexContainer}>
-    {/* Left Side: Text */}
-    <div className={styles.textSide}>
-      <h2 className={styles.sectionTitle}>Get Featured</h2>
-      <p className={styles.sectionDescription}>
-        Want to showcase your sticker collection to thousands? Scan the QR code to submit your story, upload your videos, and get a chance to be featured on our main page!
-      </p>
-      <div className={styles.featurePoints}>
-        <span>✓ High-quality long-form videos</span>
-        <span>✓ Detailed sticker reviews</span>
-        <span>✓ Global community reach</span>
-      </div>
-    </div>
+        {/* SECTION 4: GET FEATURED (QR SECTION UPDATED) */}
+        <section className={styles.qrSection}>
+          <div className={styles.flexContainer}>
+            {/* Left Side: Text */}
+            <div className={styles.textSide}>
+              <h2 className={styles.sectionTitle}>Get Featured</h2>
+              <p className={styles.sectionDescription}>
+                Want to showcase your sticker collection to thousands? Scan the QR code to submit your story, upload your videos, and get a chance to be featured on our main page!
+              </p>
+              <div className={styles.featurePoints}>
+                <span>✓ High-quality long-form videos</span>
+                <span>✓ Detailed sticker reviews</span>
+                <span>✓ Global community reach</span>
+              </div>
+            </div>
 
-    {/* Right Side: QR Image */}
-    <div className={styles.qrSide}>
-      <div className={styles.qrCard}>
-        <img 
-          src="/qr-cinematic.png" 
-          alt="Scan to Get Featured" 
-          className={styles.homeQrImage} 
-        />
-        <p className={styles.qrBadge}>SCAN TO SUBMIT</p>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Right Side: QR COMPONENT (Yahan ab image ki jagah component aayega) */}
+            <div className={styles.qrSide}>
+              <div className={styles.qrCard}>
+                {/* Ab yahan purani image '/qr-cinematic.png' ke bajaye 
+                  aapka naya dynamic QRCodeGen component chalega 
+                */}
+                <QRCodeGen />
+              </div>
+            </div>
+          </div>
+        </section>
 
       </div>
     </div>

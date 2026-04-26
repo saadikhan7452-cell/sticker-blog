@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Clapperboard, Info, Upload, Menu, X } from 'lucide-react';
+import { BookOpen, Clapperboard, Info, Upload, Menu, X, Lock } from 'lucide-react';
 import styles from './Navbar.module.css'; 
 import myLogo from '../assets/logo.jpeg'; 
 
@@ -9,6 +9,9 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Check karna ke admin logged in hai ya nahi (optional check)
+  const isAdmin = localStorage.getItem('isAuthenticated') === 'true';
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContent}>
@@ -16,9 +19,9 @@ export default function Navbar() {
           <img 
             src={myLogo} 
             alt="StickerBlog Logo" 
-            style={{ height: '110px', width: 'auto', borderRadius: '8px' }} 
+            style={{ height: '60px', width: 'auto', borderRadius: '8px' }} 
           />
-          StickerBlog
+          <span className={styles.logoText}>StickerBlog</span>
         </Link>
         
         {/* Desktop Links */}
@@ -27,6 +30,11 @@ export default function Navbar() {
           <Link to="/blogs" className={styles.link}><Clapperboard size={18}/> Watch & Read</Link>
           <Link to="/submit" className={styles.link}><Upload size={18}/> Submit Video</Link>
           <Link to="/about" className={styles.link}><Info size={18}/> About</Link>
+          
+          {/* Admin Link - Sirf tab dikhega jab login ho, ya aap hamesha ke liye bhi rakh sakte hain */}
+        <Link to="/login" className={styles.adminLink}>
+  <Lock size={18}/> Login / Sign Up
+</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -49,6 +57,9 @@ export default function Navbar() {
         <Link to="/about" className={styles.sideLink} onClick={toggleMenu}>
           <Info size={20}/> About
         </Link>
+       <Link to="/login" className={styles.sideLink} onClick={toggleMenu}>
+  <Lock size={20}/> Login / Sign Up
+</Link>
       </div>
 
       {/* Overlay */}

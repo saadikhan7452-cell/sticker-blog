@@ -29,6 +29,7 @@
 
 .navLinks {
   display: flex;
+  align-items: center; /* Icons ko center karne ke liye */
   gap: 24px;
 }
 
@@ -48,7 +49,27 @@
   transform: translateY(-2px);
 }
 
-/* --- SIDEBAR BASE STATE (Force Hidden on Desktop) --- */
+/* --- Admin Link Special Styling --- */
+.adminLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-yellow);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 2px solid var(--brand-yellow);
+  border-radius: 50px; /* Capsule look */
+  transition: all 0.3s ease;
+}
+
+.adminLink:hover {
+  background-color: var(--brand-yellow);
+  color: var(--brand-purple);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* --- SIDEBAR BASE STATE --- */
 .sidebar {
   display: none !important; 
   position: fixed;
@@ -85,11 +106,11 @@
   }
 
   .sidebar {
-    display: flex !important; /* Mobile par flex enable karein */
+    display: flex !important;
   }
 
   .sidebar.active {
-    right: 0 !important; /* Slide in on mobile */
+    right: 0 !important;
   }
 
   .sideLink {
@@ -102,6 +123,11 @@
     font-weight: 700;
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: color 0.3s ease;
+  }
+
+  .sideLink:hover {
+    color: var(--brand-yellow);
   }
 
   .overlay {
@@ -116,6 +142,6 @@
   }
 
   .logo img {
-    height: 70px !important;
+    height: 60px !important; /* Adjusted for better proportion */
   }
 }

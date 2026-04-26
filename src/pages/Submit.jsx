@@ -48,7 +48,6 @@ export default function Submit() {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
-        
         <div className={styles.header}>
           <h1 className={styles.title}>Feature Your <span className={styles.highlight}>Story!</span></h1>
           <p className={styles.subtitle}>
@@ -109,7 +108,6 @@ export default function Submit() {
                Scan to join our community of sticker lovers!
             </div>
           </div>
-
         </div>
       </div>
     </div>

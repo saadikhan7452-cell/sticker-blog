@@ -1,14 +1,22 @@
 {
   "name": "backend",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+>>>>>>> 3f158818e2a196175eebf77074ec402ccbbb20e0
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "type": "commonjs",
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -20,5 +28,16 @@
     "mongodb": "^7.2.0",
     "mongoose": "^9.5.0",
     "multer": "^2.1.1"
+=======
+  "description": "",
+  "dependencies": {
+    "axios": "^1.15.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.5.0",
+    "mongose": "^0.0.2-security"
+>>>>>>> 3f158818e2a196175eebf77074ec402ccbbb20e0
   }
 }

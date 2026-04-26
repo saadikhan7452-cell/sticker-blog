@@ -7,7 +7,6 @@ import About from './pages/About';
 import SubmitVideo from "./pages/Submit";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-
 function App() {
   return (
     <BrowserRouter>

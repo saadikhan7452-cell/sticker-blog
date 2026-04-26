@@ -25,9 +25,9 @@ export default function Navbar() {
           <img 
             src={myLogo} 
             alt="StickerBlog Logo" 
-            style={{ height: '110px', width: 'auto', borderRadius: '8px' }} 
+            style={{ height: '60px', width: 'auto', borderRadius: '8px' }} 
           />
-          StickerBlog
+          <span className={styles.logoText}>StickerBlog</span>
         </Link>
         
         {/* Desktop Links */}

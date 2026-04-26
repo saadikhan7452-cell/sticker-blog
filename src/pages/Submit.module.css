@@ -115,7 +115,41 @@
   box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 
-.qrMainImage {
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input[type="text"],
+.form input[type="email"] {
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form input:focus {
+  border-color: #7c3aed; /* Brand Purple */
+}
+
+.fileBox {
+  padding: 20px;
+  border: 2px dashed #d1d5db;
+  border-radius: 15px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fileBox:hover {
+  border-color: #7c3aed;
+  background: #f5f3ff;
+}
+
+.fileBox input[type="file"] {
   width: 100%;
   height: auto;
   display: block;

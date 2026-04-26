@@ -3,23 +3,29 @@ import styles from './QRCodeGen.module.css';
 
 export default function QRCodeGen() {
   
-  // Ye line automatically aapki website ka address pakar legi
-  // Agar localhost hai to localhost:5173/submit, agar live hai to stickerstories1.com/submit
-  const liveSubmitLink = `${window.location.origin}/submit`;
-  
-  // QR Code generator (High quality 400x400)
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(liveSubmitLink)}`;
+  // Aapka wahi purana Google Form/Drive Link
+  const uploadFormLink = "https://docs.google.com/forms/d/e/1FAIpQLScS4wI-Yp8Z5K4Y-7-6_5-4-3-2-1/viewform"; 
+
+  // QR Code generator URL
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(uploadFormLink)}`;
 
   return (
-    <div className={styles.qrContainer}>
-      <div className={styles.qrCard}>
-        {/* Is QR ko scan karne se seedha Submit.jsx wala page khulega */}
+    <div className={styles.wrapper}>
+      <div className={styles.textSection}>
+        <h2 className={styles.title}>Feature Your Story!</h2>
+        <p className={styles.subtitle}>
+          Want to see your stickers on our platform? Scan this QR code to upload your video!
+          <br /><br />
+          <strong>Pro Tip:</strong> Make sure you're subscribed to our channel to stay updated.
+        </p>
+      </div>
+      <div className={styles.qrBox}>
+        {/* Is image ko scan karne se seedha aapka purana link khulega */}
         <img 
           src={qrCodeUrl} 
-          alt="Scan to Submit Story" 
+          alt="Scan to upload video" 
           className={styles.qrImage} 
         />
-        <div className={styles.label}>SCAN TO SUBMIT</div>
       </div>
     </div>
   );

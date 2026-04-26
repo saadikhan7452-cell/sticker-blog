@@ -3,32 +3,34 @@ import styles from './QRCodeGen.module.css';
 
 export default function QRCodeGen() {
   
-  // Ye logic aapke browser se current URL (localhost:5173) uthayega
-  // Aur uske agay automatic '/submit' laga dega
-  const currentUrl = window.location.origin;
-  const targetPath = `${currentUrl}/submit`;
+  // 1. Ye line khud hi website ka base address pakar legi
+  // Agar aap laptop par hain to 'localhost:5173' aur live hain to 'stickerstories.com'
+  const siteUrl = window.location.origin;
   
-  // QR Code generator URL (Internal redirect ke liye)
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(targetPath)}`;
+  // 2. Iske agay humne apna submit page wala path jod diya
+  const finalRedirectLink = `${siteUrl}/submit`;
+  
+  // 3. QR Code generator (Ab ye hamesha sahi page par le kar jayega)
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(finalRedirectLink)}`;
 
   return (
-    <div className={styles.fullScreen}>
-      <div className={styles.qrContainer}>
-        {/* Iska screenshot lena hai aapne */}
+    <div className={styles.wrapper}>
+      <div className={styles.textSection}>
+        <h2 className={styles.title}>Feature Your Story!</h2>
+        <p className={styles.subtitle}>
+          Want to see your stickers on our platform? Scan this QR code to upload your video directly to our website!
+        </p>
+      </div>
+      <div className={styles.qrBox}>
+        {/* Is QR ko scan karte hi /submit page khulega */}
         <img 
           src={qrCodeUrl} 
-          alt="Submit Page QR" 
-          className={styles.qrCodeImage} 
+          alt="Scan to submit" 
+          className={styles.qrImage} 
         />
-        <h2 className={styles.instruction}>SCAN TO SUBMIT VIDEO</h2>
-        <p className={styles.debugPath}>Redirects to: {targetPath}</p>
-      </div>
-      
-      <div className={styles.guideBox}>
-        <p><strong>Next Steps:</strong></p>
-        <p>1. Is QR ka saaf screenshot lein.</p>
-        <p>2. Apne mobile se scan karke check karein (Submit page khulega).</p>
-        <p>3. Is screenshot ko apne <strong>qr-cinematic.png</strong> design mein fit kar dein.</p>
+        <div style={{ color: '#000', fontSize: '12px', fontWeight: 'bold', marginTop: '8px' }}>
+          SCAN TO SUBMIT
+        </div>
       </div>
     </div>
   );

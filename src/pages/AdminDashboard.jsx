@@ -15,16 +15,16 @@ export default function AdminDashboard() {
       return;
     }
 
-    // 2. Live backend ya localhost se videos fetch karo
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-    axios.get(`${API_URL}/api/admin/all-videos`)
+    // 2. Google Drive se direct videos fetch karo
+    const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+    axios.get(SCRIPT_URL)
       .then(res => {
         setVideos(res.data);
         setLoading(false);
       })
       .catch(err => {
         console.error(err);
-        setError('❌ Backend se connect nahi ho paa raha. Make sure "node server.js" chal raha hai.');
+        setError('❌ Google Drive se connect nahi ho paa raha.');
         setLoading(false);
       });
   }, []);

@@ -14,35 +14,40 @@ export default function Submit() {
     setLoading(true);
     setStatus('🚀 Uploading video to cloud (this may take a minute)...');
 
-    try {
-      // 1. Send Video directly to Cloudinary (Bypasses Backend Load)
-      const cloudData = new FormData();
-      cloudData.append("file", file);
-      cloudData.append("upload_preset", "sticker_video");
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      const base64Data = event.target.result.split(',')[1];
 
-      // Replace 'ddhmskhql' with your actual Cloudinary Cloud Name if different
-      const cloudRes = await axios.post(`https://api.cloudinary.com/v1_1/ddhmskhql/video/upload`, cloudData);
-      const videoUrl = cloudRes.data.secure_url;
+      try {
+        const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+        if (!SCRIPT_URL) {
+           setStatus('❌ Error: Google Script URL is missing!');
+           return setLoading(false);
+        }
 
-      setStatus('✅ Video uploaded! Saving to database...');
+        // Send base64 video directly to Google Drive via Apps Script
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: new URLSearchParams({
+            fileName: file.name,
+            mimeType: file.type,
+            fileData: base64Data,
+            name: e.target.userName.value || "Anonymous",
+            email: e.target.userEmail.value || "Not Provided"
+          })
+        });
 
-      // 2. Send only Text/Link to Backend
-      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      await axios.post(`${API_URL}/api/submit-video`, {
-        name: e.target.userName.value || "Anonymous",
-        email: e.target.userEmail.value || "Not Provided",
-        videoUrl: videoUrl
-      });
-
-      setStatus('🎉 Success! Your story has been submitted.');
-      setLoading(false);
-      setFile(null);
-      e.target.reset();
-    } catch (err) {
-      console.error(err);
-      setStatus('❌ Error: Upload failed. Check backend connection.');
-      setLoading(false);
-    }
+        setStatus('🎉 Success! Your video is now in Google Drive.');
+        setLoading(false);
+        setFile(null);
+        e.target.reset();
+      } catch (err) {
+        console.error(err);
+        setStatus('❌ Error: Google Drive upload failed.');
+        setLoading(false);
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   return (

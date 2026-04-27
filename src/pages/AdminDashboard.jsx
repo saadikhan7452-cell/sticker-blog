@@ -9,11 +9,16 @@ export default function AdminDashboard() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // 1. Auth Check (Local Storage check)
-    if (!localStorage.getItem('isAdmin')) {
-      window.location.href = '/admin-login';
-      return;
-    }
+  // 👇 Check karein ke naam 'adminToken' hi ho
+  const token = localStorage.getItem('adminToken');
+  
+  if (!token) {
+    window.location.href = "/admin-login";
+    return;
+  }
+
+  // Baki ka fetch logic yahan aayega...
+
 
     const fetchVideos = async () => {
       try {

@@ -8,12 +8,15 @@ export default function AdminLogin() {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    // Frontend-only validation (No Backend Needed for Login)
-    if (email === "admin@stickerblog.com" && password === "saad123") {
-      localStorage.setItem('adminToken', 'sticker-blog-secret-token');
-      window.location.href = '/admin-dashboard'; // Redirect to Dashboard
+    // Video wala email aur password logic
+    if (email === "admin@stickerblog.com" && password === "admin123") {
+      // 1. Chabi (Token) save karein
+      localStorage.setItem("adminToken", "true"); 
+      
+      // 2. Dashboard par bhein
+      window.location.href = "/admin-dashboard"; 
     } else {
-      setError('❌ Login failed! Please check your email and password.');
+      setError("❌ Invalid Email or Password!");
     }
   };
 
@@ -25,7 +28,8 @@ export default function AdminLogin() {
         <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <input 
             type="email" 
-            placeholder="email" 
+            name="email"  // 👈 Zaroori tag add kiya
+            placeholder="Email Address" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             required 
@@ -33,6 +37,7 @@ export default function AdminLogin() {
           />
           <input 
             type="password" 
+            name="password" // 👈 Zaroori tag add kiya
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 

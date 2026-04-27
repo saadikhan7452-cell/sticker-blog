@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Hero from '../components/Hero';
 import BlogCard from '../components/BlogCard';
 import { dummyBlogs } from '../data/dummyData';
-import { PlayCircle, Heart, Share2, Sparkles } from 'lucide-react'; 
+import { PlayCircle, Sparkles, ExternalLink } from 'lucide-react'; 
 import styles from './Home.module.css';
 
 export default function Home() {
-  const [qrUrl, setQrUrl] = useState('');
-
-  useEffect(() => {
-    // Dynamically gets your current domain and points the QR to /submit
-    const submitRoute = `${window.location.origin}/submit`;
-    setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(submitRoute)}`);
-  }, []);
+  // QR code state aur useEffect ab zaroorat nahi hai kyunke hum static image use kar rahe hain.
 
   return (
     <div className={styles.homeWrapper}>
@@ -24,7 +18,7 @@ export default function Home() {
         <section className={styles.section}>
           <div className={styles.headerFlex}>
             <h2 className={styles.sectionTitle}>Latest Sticker Hauls</h2>
-            <a href="https://www.youtube.com/@StickerStories1" target="_blank" className={styles.ctaLink}>
+            <a href="https://www.youtube.com/@StickerStories1" target="_blank" rel="noopener noreferrer" className={styles.ctaLink}>
               View All on YouTube <PlayCircle size={20} />
             </a>
           </div>
@@ -40,7 +34,7 @@ export default function Home() {
           <Sparkles className={styles.iconFloating} size={40} />
           <h2 className={styles.bannerTitle}>Never Miss a Sticker Drop!</h2>
           <p className={styles.bannerText}>Subscribe to @StickerStories1 for the world's most satisfying unboxings.</p>
-          <a href="https://www.youtube.com/@StickerStories1?sub_confirmation=1" target="_blank" className={styles.mainCta}>
+          <a href="https://www.youtube.com/@StickerStories1?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className={styles.mainCta}>
             SUBSCRIBE NOW (IT'S FREE!)
           </a>
         </section>
@@ -61,7 +55,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 4: GET FEATURED (QR SECTION UPDATED) */}
+        {/* SECTION 4: GET FEATURED (IMAGE UPDATED) */}
         <section className={styles.qrSection}>
           <div className={styles.flexContainer}>
             {/* Left Side: Text */}
@@ -77,19 +71,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Side: QR Image */}
+            {/* Right Side: Static QR Image */}
             <div className={styles.qrSide}>
-              <div className={styles.qrCard} style={{ background: 'white', padding: '30px', borderRadius: '24px', display: 'inline-block', textAlign: 'center' }}>
-                {qrUrl ? (
-                  <img 
-                    src={qrUrl} 
-                    alt="Scan to Get Featured" 
-                    style={{ width: '200px', height: '200px', objectFit: 'contain' }}
-                  />
-                ) : (
-                  <div style={{ width: '200px', height: '200px', background: '#f3f4f6', borderRadius: '15px' }} />
-                )}
-                <p className={styles.qrBadge} style={{ marginTop: '20px', color: '#7c3aed', fontWeight: 'bold' }}>SCAN TO SUBMIT</p>
+              <div className={styles.qrCard}>
+                {/* Aapka Image Path yahan set hai */}
+                <img 
+                  src="/images/qr-cinematic.png" 
+                  alt="Scan to Get Featured" 
+                  className={styles.qrMainImage}
+                />
+                <div className={styles.qrBadgeBox}>
+                   <p className={styles.qrBadge}>SCAN TO SUBMIT</p>
+                </div>
               </div>
             </div>
           </div>

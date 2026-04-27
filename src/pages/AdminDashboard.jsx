@@ -9,21 +9,18 @@ export default function AdminDashboard() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-  // 👇 Check karein ke naam 'adminToken' hi ho
-  const token = localStorage.getItem('adminToken');
-  
-  if (!token) {
-    window.location.href = "/admin-login";
-    return;
-  }
-
-  // Baki ka fetch logic yahan aayega...
-
+    // 1. Auth Check: Agar token nahi hai toh wapis bhej do
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      window.location.href = "/admin-login";
+      return;
+    }
 
     const fetchVideos = async () => {
       try {
         const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
         const res = await axios.get(SCRIPT_URL);
+        
         // Sorting: Newest videos first
         const sortedData = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setVideos(sortedData);
@@ -113,11 +110,14 @@ export default function AdminDashboard() {
                   Preview <ExternalLink size={14} />
                 </a>
                 
-                {/* HD Download Button (Fixes the client's need) */}
-                <a href={video.downloadUrl || video.videoUrl.replace('preview', 'view')} 
+                {/* 👇 FIXED DIRECT DOWNLOAD BUTTON 👇 */}
+                <a 
+                   href={video.downloadUrl || `https://drive.google.com/uc?export=download&id=${video._id}`} 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   className={styles.downloadBtn}>
+                   className={styles.downloadBtn}
+                   download
+                >
                   Download HD <Download size={14} />
                 </a>
               </div>

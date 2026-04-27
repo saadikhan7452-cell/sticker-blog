@@ -1,113 +1,137 @@
 .dashboardWrapper {
+  min-height: 100vh;
+  background: #0f172a;
   padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 80vh;
+  color: #f8fafc;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #f3f4f6;
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
 }
 
-.title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #1f2937;
+.headerLeft { display: flex; gap: 15px; align-items: center; }
+
+.iconBox {
+  background: rgba(251, 191, 36, 0.1);
+  padding: 12px;
+  border-radius: 12px;
 }
 
-.subtitle {
-  color: #6b7280;
-  margin-top: 5px;
-  font-size: 1.1rem;
-}
+.title { font-size: 1.8rem; font-weight: 800; margin: 0; }
+.highlight { color: #fbbf24; }
+.subtitle { color: #94a3b8; margin: 5px 0 0 0; }
 
 .statsBadge {
-  background: #ede9fe;
-  color: #7c3aed;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 1.1rem;
+  background: #1e293b;
+  padding: 10px 20px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 1px solid #334155;
+  font-weight: 600;
 }
+
+.divider { border: 0; border-top: 1px solid #1e293b; margin-bottom: 40px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  background: white;
+  background: #1e293b;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-  border: 1px solid #f3f4f6;
+  border: 1px solid #334155;
+  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.15);
+.card:hover { transform: translateY(-5px); border-color: #fbbf24; }
+
+.videoPreview {
+  width: 100%;
+  height: 200px;
+  background: #000;
+  overflow: hidden;
 }
 
-.cardThumb {
-  height: 180px;
-  background: linear-gradient(135deg, #1f2937, #4b5563);
+.iframePlayer {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cardBody { padding: 20px; }
+
+.userSection { display: flex; gap: 12px; align-items: center; margin-bottom: 15px; }
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #fbbf24;
+  color: #000;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  font-weight: 800;
 }
 
-.playBtn {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  padding: 15px;
-  backdrop-filter: blur(5px);
-  color: white;
-  transition: all 0.3s ease;
-}
+.userName { font-size: 1rem; margin: 0; display: flex; align-items: center; gap: 6px; }
+.userEmail { font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0; display: flex; align-items: center; gap: 6px; }
 
-.cardThumb:hover .playBtn {
-  background: #7c3aed;
-  transform: scale(1.1);
-}
-
-.cardBody {
-  padding: 25px;
-}
-
-.userInfo {
+.dateInfo {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  color: #4b5563;
-  font-size: 0.95rem;
+  gap: 5px;
 }
 
-.userName {
-  font-weight: 800;
-  color: #1f2937;
-  font-size: 1.2rem;
-}
+.buttonGroup { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-.watchBtn {
-  display: block;
-  background: #1f2937;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  border-radius: 12px;
+.viewBtn, .downloadBtn {
+  padding: 10px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
-  margin-top: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.viewBtn { background: transparent; border: 1px solid #334155; color: #f8fafc; }
+.viewBtn:hover { background: rgba(255,255,255,0.05); }
+
+.downloadBtn { background: #fbbf24; color: #000; }
+.downloadBtn:hover { background: #f59e0b; }
+
+.loaderContainer { text-align: center; padding: 50px; }
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(251, 191, 36, 0.1);
+  border-top: 4px solid #fbbf24;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; text-align: center; gap: 20px; }
 }

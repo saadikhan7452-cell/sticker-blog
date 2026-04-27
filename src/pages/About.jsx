@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './About.module.css';
 
 export default function About() {
-  const [qrUrl, setQrUrl] = useState('');
-
-  useEffect(() => {
-    // Dynamically gets your current domain and points the QR to /submit
-    const submitRoute = `${window.location.origin}/submit`;
-    setQrUrl(`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(submitRoute)}`);
-  }, []);
+  // QR generator logic removed for static image consistency.
 
   return (
     <div className={styles.container}>
@@ -45,14 +39,13 @@ export default function About() {
         </div>
         
         <div className={styles.qrSide}>
-          {qrUrl ? (
-            <img 
-              src={qrUrl} 
-              alt="Scan to Join" 
-              className={styles.qrImageSide}
-            />
-          ) : <div className={styles.qrImageSide} style={{ height: '250px', background: '#f3f4f6' }} />}
-          <p style={{marginTop: '15px', fontSize: '0.9rem', fontWeight: 'bold', color: '#7c3aed', letterSpacing: '1px'}}>
+          {/* Static Cinematic Image Used Here */}
+          <img 
+            src="/images/qr-cinematic.png" 
+            alt="Scan to Join" 
+            className={styles.qrImageSide}
+          />
+          <p className={styles.qrLabelText}>
             SCAN TO SUBMIT
           </p>
         </div>

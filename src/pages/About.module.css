@@ -61,16 +61,28 @@
 .qrImageSide {
   width: 100%;
   max-width: 250px;
+  height: 250px;
+  object-fit: contain; /* Image ko distory nahi hone dega */
   background: white;
   padding: 15px;
   border-radius: 25px;
   box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2); /* Purple Glow Shadow */
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
+  border: 1px solid #e5e7eb;
 }
 
 .qrImageSide:hover {
-  transform: scale(1.03);
+  transform: scale(1.05) rotate(2deg); /* Chota sa rotation effect */
+}
+
+.qrLabelText {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #7c3aed;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* --- Mobile Responsive --- */

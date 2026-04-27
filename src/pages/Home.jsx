@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import BlogCard from '../components/BlogCard';
-import QRCodeGen from '../components/QRCodeGen'; // Component import confirm hai
 import { dummyBlogs } from '../data/dummyData';
 import { PlayCircle, Heart, Share2, Sparkles } from 'lucide-react'; 
 import styles from './Home.module.css';

@@ -25,7 +25,7 @@ export default function AdminLogin() {
         <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <input 
             type="email" 
-            placeholder="admin@stickerblog.com" 
+            placeholder="email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             required 

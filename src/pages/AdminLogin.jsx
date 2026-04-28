@@ -9,7 +9,7 @@ export default function AdminLogin() {
     e.preventDefault();
     
     // Video wala email aur password logic
-    if (email === "admin@stickerblog.com" && password === "admin123") {
+    if (email === "admin@stickerblog.com" && password === "infinitymedia@2026") {
       // 1. Chabi (Token) save karein
       localStorage.setItem("adminToken", "true"); 
       

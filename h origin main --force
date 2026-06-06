@@ -250,3 +250,7 @@
                   Enable mouse input.
                 --no-edit-warn
                   Don't warn when using v command on a file opened via LESSOPEN.
+                --no-keypad
+                  Don't send termcap keypad init/deinit strings.
+                --no-histdups
+                  Remove duplicates from command history.

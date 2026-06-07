@@ -189,6 +189,76 @@
   text-transform: uppercase;
 }
 
+/* 🎬 DYNAMIC COMMUNITY VIDEO CARDS (NEW ADDITIONS) */
+.videoCard {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-color, #e5e7eb);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.videoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(107, 33, 168, 0.12);
+}
+
+.iframeWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.videoIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.videoCardBody {
+  padding: 20px;
+}
+
+.videoCardTitle {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.videoDate {
+  color: var(--text-muted, #6b7280);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.seeAllBtn {
+  background-color: var(--brand-purple);
+  color: white;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(107, 33, 168, 0.2);
+  transition: all 0.2s ease;
+}
+
+.seeAllBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
 /* RESPONSIVE FIXES */
 @media (max-width: 768px) {
   .section {
@@ -238,5 +308,12 @@
     flex: 0 0 auto;
     width: 100%;
     max-width: 320px;
+  }
+
+  /* Mobile adjustment for see all button */
+  .seeAllBtn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
   }
 }

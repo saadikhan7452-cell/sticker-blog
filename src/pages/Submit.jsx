@@ -1,12 +1,15 @@
+import React from 'react';
 import styles from './Submit.module.css';
 
 export default function Submit() {
+  // Tumhara official Google Form Link
   const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScS4wgxpSkJksJVY8jdkZVyzestd-dlMD65Su8j2X8Wu9vDAg/viewform";
 
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.container}>
         
+        {/* Header Title Section */}
         <div className={styles.header}>
           <h1 className={styles.title}>Feature Your <span className={styles.highlight}>Story!</span></h1>
           <p className={styles.subtitle}>
@@ -14,9 +17,11 @@ export default function Submit() {
           </p>
         </div>
         
+        {/* Portal Card Setup */}
         <div className={styles.cardContainer}>
           <div className={styles.uploadCard}>
             
+            {/* Cloud Icon wrapper */}
             <div className={styles.iconWrapper}>
               <svg 
                 className={styles.cloudIcon} 
@@ -35,10 +40,12 @@ export default function Submit() {
             </div>
 
             <h2 className={styles.cardTitle}>Google Drive Upload Portal</h2>
+            
             <p className={styles.cardDesc}>
-              Click the button below to open our official submission form. You can upload videos up to 100MB/1GB instantly without any login!
+              Click the button below to open our official submission form. You can upload videos up to 100MB/1GB instantly using your Google account connection!
             </p>
 
+            {/* Direct Link Action - Open in new tab */}
             <a 
               href={formUrl} 
               target="_blank" 

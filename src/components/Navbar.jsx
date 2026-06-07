@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Clapperboard, Info, Upload, Menu, X } from 'lucide-react';
+import { BookOpen, Clapperboard, Info, Upload, Menu, X, Tv } from 'lucide-react'; // 👈 Tv icon add kiya hai
 import styles from './Navbar.module.css'; 
 import myLogo from '../assets/logo.jpeg'; 
 
@@ -25,6 +25,7 @@ export default function Navbar() {
         <div className={styles.navLinks}>
           <Link to="/" className={styles.link}><BookOpen size={18}/> Home</Link>
           <Link to="/blogs" className={styles.link}><Clapperboard size={18}/> Watch & Read</Link>
+          <Link to="/gallery" className={styles.link}><Tv size={18}/> Video Vault</Link> {/* 👈 Added */}
           <Link to="/submit" className={styles.link}><Upload size={18}/> Submit Video</Link>
           <Link to="/about" className={styles.link}><Info size={18}/> About</Link>
         </div>
@@ -42,6 +43,9 @@ export default function Navbar() {
         </Link>
         <Link to="/blogs" className={styles.sideLink} onClick={toggleMenu}>
           <Clapperboard size={20}/> Watch & Read
+        </Link>
+        <Link to="/gallery" className={styles.sideLink} onClick={toggleMenu}>
+          <Tv size={20}/> Video Vault {/* 👈 Added */}
         </Link>
         <Link to="/submit" className={styles.sideLink} onClick={toggleMenu}>
           <Upload size={20}/> Submit Video

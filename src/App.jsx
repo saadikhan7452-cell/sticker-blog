@@ -4,7 +4,8 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs'; 
 import SingleBlog from './pages/SingleBlog';
 import About from './pages/About';
-import SubmitVideo from "./pages/Submit";
+import Submit from "./pages/Submit";
+import VideoGallery from "./pages/VideoGallery"; // 👈 Naya page import ho gaya
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="blog/:id" element={<SingleBlog />} />
           <Route path="about" element={<About />} />
-         <Route path="/submit" element={<SubmitVideo />} />
+          <Route path="submit" element={<Submit />} />
+          <Route path="gallery" element={<VideoGallery />} /> {/* 🚀 Route setup done */}
         </Route>
       </Routes>
     </BrowserRouter>

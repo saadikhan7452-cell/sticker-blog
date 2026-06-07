@@ -48,7 +48,7 @@
   transform: translateY(-2px);
 }
 
-/* --- SIDEBAR BASE STATE (Force Hidden on Desktop) --- */
+/* --- SIDEBAR BASE STATE --- */
 .sidebar {
   display: none !important; 
   position: fixed;
@@ -85,11 +85,11 @@
   }
 
   .sidebar {
-    display: flex !important; /* Mobile par flex enable karein */
+    display: flex !important;
   }
 
   .sidebar.active {
-    right: 0 !important; /* Slide in on mobile */
+    right: 0 !important;
   }
 
   .sideLink {

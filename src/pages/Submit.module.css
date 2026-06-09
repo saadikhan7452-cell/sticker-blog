@@ -174,3 +174,12 @@
   background-color: #EAB308;
   transform: translateY(-2px);
 }
+
+/* Card Description Text (Jo pehle chhup gaya tha) */
+.cardDescription {
+  color: #e2e8f0; /* Soft white color */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-weight: 400;
+}

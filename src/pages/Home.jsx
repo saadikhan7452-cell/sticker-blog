@@ -73,9 +73,9 @@ export default function Home() {
           </div>
           
           {loading ? (
-            <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '20px' }}>Realtime videos load ho rahi hain...</p>
+            <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '20px' }}>Loading...</p>
           ) : videos.length === 0 ? (
-            <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '20px' }}>Abhi tak koi video upload nahi hui hai.</p>
+            <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '20px' }}>No videos available.</p>
           ) : (
             <>
               <div className={styles.grid}>

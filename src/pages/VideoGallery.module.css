@@ -14,13 +14,11 @@
 /* ⚡ UPGRADED: Premium Fast Pulsing Loader */
 .centerText {
   text-align: center;
-  color: var(--brand-yellow, #FACC15); /* Premium highlight color */
+  color: var(--brand-yellow, #FACC15);
   padding: 120px 20px;
   font-size: 1.1rem;
   font-weight: 900;
-  letter-spacing: 2px; /* Sleek tracking effect */
-  
-  /* Snappy 1-second pulse duration for an active feel */
+  letter-spacing: 2px;
   animation: snappyPulse 1s infinite ease-in-out; 
 }
 
@@ -37,7 +35,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* 320px se 280px kar diya taake chote mobiles par bhi fit ho */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 35px;
 }
 
@@ -81,8 +80,8 @@
   padding: 24px;
 }
 
-.videoTitle {
-  margin: 0 0 10px 0;
+.cardBody h4 {
+  margin: 0;
   font-size: 1.2rem;
   font-weight: 800;
   color: var(--text-main, #ffffff);
@@ -93,46 +92,40 @@
   transition: color 0.3s ease;
 }
 
-.videoCard:hover .videoTitle {
+.videoCard:hover .cardBody h4 {
   color: var(--brand-yellow, #FACC15);
 }
 
-.videoDate {
-  color: var(--text-muted, #9CA3AF);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.7;
-}
+/* =========================================
+   📱 MOBILE RESPONSIVE MEDIA QUERIES 
+   ========================================= */
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding: 30px 0; /* Mobile par top/bottom padding kam kar di */
+  }
 
-.uploadBtn {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  background-color: #5a3e75; /* StickerStories Purple */
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-family: 'Georgia', serif;
-  transition: all 0.3s;
-}
+  .container {
+    padding: 0 16px; /* Mobile par side margins kam kar diye */
+  }
 
-.uploadBtn:disabled {
-  background-color: #999;
-  cursor: not-allowed;
-}
+  .grid {
+    gap: 20px; /* Cards ke darmiyan fasla kam kar diya */
+  }
 
-.uploadBtn:hover:not(:disabled) {
-  background-color: #7a5a99;
-  transform: translateY(-2px);
-}
+  .videoCard {
+    border-radius: 16px; /* Mobile par border thora sharp acha lagta hai */
+  }
 
-/* Card Styling for Consistency */
-.videoCard {
-  background: white;
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  .cardBody {
+    padding: 16px; /* Card ke andar ka space kam kar diya */
+  }
+
+  .cardBody h4 {
+    font-size: 1.1rem; /* Text size thora adjust kiya */
+  }
+
+  .centerText {
+    padding: 60px 20px; /* Loading text ka space kam kar diya */
+    font-size: 1rem;
+  }
 }
